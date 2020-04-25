@@ -7,6 +7,7 @@ package ConexaoDB;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -18,17 +19,20 @@ public class ConexaoDB {
     private static final String URL_DB="jdbc:mysql://127.0.0.1:3306/lucas_lopes_martins_registro_escolar?useTimezone=true&serverTimezone=UTC";
     
     
-    public static Connection retornaConexao() throws Exception{
+    public static Connection retornaConexao(){
+        Connection conexao=null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conexao=DriverManager.getConnection(URL_DB, USUARIO, SENHA);
+            conexao=DriverManager.getConnection(URL_DB, USUARIO, SENHA);
             
-               return conexao;
-               }catch(Exception e){
-                   System.out.println("Erro de Banco de Dados: "+e.toString());
-                }
+        }catch(SQLException e){
+                   System.err.println("Erro de Conexao: "+e.toString());
+        }catch (ClassNotFoundException e){
+            System.err.println("Classe Não Encontrada:"+e.toString());
         
-        return null;
+        }
+        
+        return conexao;
         
 
 } 

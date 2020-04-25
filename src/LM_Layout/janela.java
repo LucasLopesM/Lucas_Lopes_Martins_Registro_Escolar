@@ -17,7 +17,7 @@ import javax.swing.JFrame;
  * @author 201817069
  */
 public class janela extends JFrame {
- public  janela(){
+public  janela(){
     
      super("Registro Escolar");
  
@@ -30,7 +30,7 @@ public class janela extends JFrame {
  getContentPane().add(new Topo(),BorderLayout.NORTH);
  getContentPane().add(new Centro(),BorderLayout.CENTER);
  
-        
+      
 
 }
 

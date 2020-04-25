@@ -5,7 +5,8 @@
  */
 package LM_DAO;
 
-import LM_Classes.LM_Series;
+import ConexaoDB.ConexaoDB;
+import LM_bean.LM_Series;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -16,10 +17,11 @@ import java.sql.PreparedStatement;
 public class LM_SeriesDAO {
     public static void adicionar(LM_Series series){
         String sql="INSERT INTO LM_Series(LM_serieEspecifica,LM_professorResponsavel,LM_TotalDeAlunos,LM_turnoDaAula,LM_SalaDeAula) VALUES (?,?,?,?,?)";
-    Connection conexao=null;
-     PreparedStatement stmt=null;
-     
-      try{
+    Connection conexao=ConexaoDB.retornaConexao();
+        
+        
+        try{
+            PreparedStatement stmt=conexao.prepareStatement(sql);
           stmt.setString(1, series.getLM_serieEspecifica());
           stmt.setString(2, series.getLM_professorResponsavel());
           stmt.setInt(3, series.getLM_TotalDeAlunos());
@@ -27,10 +29,11 @@ public class LM_SeriesDAO {
           stmt.setString(5, series.getLM_SalaDeAula());
           
           
-      stmt.execute();
-            System.out.println("Produto adicionado com Sucesso");
-  }catch(Exception e){
-                System.out.println("Erro no Adicionar Produto: "+e.toString());
+       stmt.execute();
+            System.err.println("Produto adicionado com Sucesso");
+            
+            }catch(Exception e){
+                System.err.println("Erro no Adicionar Produto: "+e.toString());
             
             }
       

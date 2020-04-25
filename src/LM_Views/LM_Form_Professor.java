@@ -5,7 +5,7 @@
  */
 package LM_Views;
 
-import LM_Classes.LM_Professor;
+import LM_bean.LM_Professor;
 import LM_DAO.LM_ProfessorDAO;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 public class Centro extends JPanel{
     public Centro(){
         
-        LM_Form_Alunos alunos=new LM_Form_Alunos();
+        /*LM_Form_Alunos alunos=new LM_Form_Alunos();
         
         add(alunos);
         
@@ -36,7 +36,7 @@ public class Centro extends JPanel{
         add(series);
         
         
-     
+     */
     }
     
 }

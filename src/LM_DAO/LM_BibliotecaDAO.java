@@ -5,7 +5,8 @@
  */
 package LM_DAO;
 
-import LM_Classes.LM_Biblioteca;
+import ConexaoDB.ConexaoDB;
+import LM_bean.LM_Biblioteca;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -15,12 +16,13 @@ import java.sql.PreparedStatement;
  */
 public class LM_BibliotecaDAO {
     public static void adicionar( LM_Biblioteca biblioteca){
-    String sql="INSERT INTO LM_Biblioteca(LM_bibliotecaria,LM_acervo,LM_emprestimos,LM_pedidos,LM_livro,LM_localizarLivro) VALUES (?,?,?,?,?,?)";
+    String sql="INSERT INTO LM_Biblioteca(LM_bibliotecaria,LM_acervo,LM_emprestimos,LM_pedidos,LM_livros,LM_localizarLivro) VALUES (?,?,?,?,?,?)";
     
-    Connection conexao=null;
-    PreparedStatement stmt=null;
-    
-     try{
+    Connection conexao=ConexaoDB.retornaConexao();
+        
+        
+    try{
+       PreparedStatement stmt=conexao.prepareStatement(sql);
     
     stmt.setString(1, biblioteca.getLM_bibliotecaria());
     stmt.setDouble(2, biblioteca.getLM_acervo());
@@ -30,10 +32,11 @@ public class LM_BibliotecaDAO {
     stmt.setString(6, biblioteca.getLM_localizarLivro());
     
     
-     stmt.execute();
-            System.out.println("Produto adicionado com Sucesso");
-  }catch(Exception e){
-                System.out.println("Erro no Adicionar Produto: "+e.toString());
+      stmt.execute();
+            System.err.println("Produto adicionado com Sucesso");
+            
+            }catch(Exception e){
+                System.err.println("Erro no Adicionar Produto: "+e.toString());
             
             }
     

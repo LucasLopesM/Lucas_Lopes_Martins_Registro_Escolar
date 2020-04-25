@@ -5,7 +5,7 @@
  */
 package LM_Views;
 
-import LM_Classes.LM_Turmas;
+import LM_bean.LM_Turmas;
 import LM_DAO.LM_TurmasDAO;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

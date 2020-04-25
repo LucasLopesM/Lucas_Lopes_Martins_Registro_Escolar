@@ -5,7 +5,7 @@
  */
 package LM_Views;
 
-import LM_Classes.LM_Series;
+import LM_bean.LM_Series;
 import LM_DAO.LM_SeriesDAO;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;

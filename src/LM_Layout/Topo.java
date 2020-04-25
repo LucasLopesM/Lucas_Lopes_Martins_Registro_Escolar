@@ -5,7 +5,12 @@
  */
 package LM_Layout;
 
+import static LM_Principal.IniciarAplicacao.centro;
+import LM_Views.LM_Form_Alunos;
+import LM_Views.LM_Form_Biblioteca;
 import LM_Views.LM_Form_Professor;
+import LM_Views.LM_Form_Series;
+import LM_Views.LM_Form_Turmas;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -20,7 +25,8 @@ import javax.swing.JPanel;
  */
 public class Topo extends JPanel{
    public Topo(){
-       setLayout(new GridLayout(1,5));
+       setLayout(new GridLayout());
+       
   JButton botao1=new JButton("Aluno");
   add(botao1);
   
@@ -38,7 +44,55 @@ public class Topo extends JPanel{
   add(botao5);
     
   
+  botao1.addActionListener(new ActionListener (){ 
+      @Override
+      public void actionPerformed(ActionEvent event) {
+          centro.removeAll();
+          centro.add(new LM_Form_Alunos());
+          centro.repaint();
+          centro.validate();
+      }
+  });
+  
+   botao2.addActionListener(new ActionListener(){ 
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          centro.removeAll();
+          centro.add(new LM_Form_Professor());
+          centro.repaint();
+          centro.validate();
+      }
+  });
+   
+    botao3.addActionListener(new ActionListener(){ 
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          centro.removeAll();
+          centro.add(new LM_Form_Biblioteca());
+          centro.repaint();
+          centro.validate();
+      }
+  });
     
+     botao4.addActionListener(new ActionListener(){ 
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          centro.removeAll();
+          centro.add(new LM_Form_Turmas());
+          centro.repaint();
+          centro.validate();
+      }
+  });
+    
+     botao5.addActionListener(new ActionListener(){ 
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          centro.removeAll();
+          centro.add(new LM_Form_Series());
+          centro.repaint();
+          centro.validate();
+      }
+  });
     
     }
 

@@ -5,7 +5,7 @@
  */
 package LM_Views;
 
-import LM_Classes.LM_Aluno;
+import LM_bean.LM_Alunos;
 import LM_DAO.LM_AlunosDAO;
 import LM_Layout.Centro;
 import java.awt.BorderLayout;
@@ -100,7 +100,7 @@ public class LM_Form_Alunos extends JPanel implements ActionListener{
          String valor_LM_senha= LM_senha.getText();
          
          
-       LM_Aluno alunos = new LM_Aluno();
+       LM_Alunos alunos = new LM_Alunos();
        alunos.setLM_Nome(valor_LM_nome);
        alunos.setLM_Serie(valor_LM_serie);
        alunos.setLM_LM_Nota1(valor_LM_nota1);
