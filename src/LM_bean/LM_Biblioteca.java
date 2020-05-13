@@ -10,6 +10,7 @@ package LM_bean;
  * @author Lucas
  */
 public class LM_Biblioteca {
+     private int id;
     protected String LM_bibliotecaria;
     protected double LM_acervo;
     protected String LM_emprestimos;
@@ -24,6 +25,16 @@ public class LM_Biblioteca {
         
       
     }*/
+    
+    public LM_Biblioteca() {}
+    
+      public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
     public void setLM_bibliotecaria(String LM_bibliotecaria){
          this.LM_bibliotecaria=LM_bibliotecaria;

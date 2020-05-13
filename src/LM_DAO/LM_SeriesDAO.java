@@ -9,6 +9,8 @@ import ConexaoDB.ConexaoDB;
 import LM_bean.LM_Series;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,5 +41,40 @@ public class LM_SeriesDAO {
       
       
     }
+            public static ArrayList<LM_Series> listar(){
+
+             ArrayList<LM_Series> series = new ArrayList<>();
+
+                String sql = "SELECT * FROM LM_Series";
+                
+                 try{
+            Connection conexao = ConexaoDB.retornaConexao();
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+
+            ResultSet dados = stmt.executeQuery();
+
+            while(dados.next()){
+                LM_Series temporario = new LM_Series();
+                temporario.setId(dados.getInt("id"));
+                temporario.setLM_serieEspecifica(dados.getString("LM_serieEspecifica"));
+                temporario.setLM_professorResponsavel(dados.getString("LM_professorResponsavel"));
+                temporario.setLM_TotalDeAlunos(dados.getInt("LM_TotalDeAlunos"));
+                temporario.setLM_turnoDaAula(dados.getString("LM_turnoDaAula"));
+                temporario.setLM_SalaDeAula(dados.getString("LM_SalaDeAula"));
+                
+                
+                 series.add(temporario);
+            }
+
+        }catch(Exception e){} 
+
+        return series;
+    
+    
+    
+    
+    }
+    
+    
     
 }

@@ -89,7 +89,7 @@ public class LM_Form_Alunos extends JPanel implements ActionListener{
     }
 
     @Override
-    public void actionPerformed(ActionEvent event) {
+    public void actionPerformed(ActionEvent e) {
         
         String valor_LM_nome= LM_nome.getText();
         String valor_LM_serie= LM_serie.getText();

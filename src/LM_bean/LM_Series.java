@@ -10,6 +10,7 @@ package LM_bean;
  * @author Lucas
  */
 public class LM_Series {
+     private int id;
     protected String LM_serieEspecifica; 
     protected String LM_professorResponsavel;
     protected int LM_TotalDeAlunos;
@@ -18,7 +19,13 @@ public class LM_Series {
     protected String LM_SalaDeAula;
     protected int LM_faltas=1;
 
-  
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
     public String faltas(){
     return this.LM_Aluno=this.LM_faltas+this.LM_Aluno;

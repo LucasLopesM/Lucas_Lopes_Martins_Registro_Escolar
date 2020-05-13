@@ -9,6 +9,8 @@ import ConexaoDB.ConexaoDB;
 import LM_bean.LM_Alunos;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -32,15 +34,53 @@ public class LM_AlunosDAO {
             stmt.setInt(6, alunos.getLM_Matricula());
             stmt.setString(7, alunos.getLM_Senha());
             
-            stmt.execute();
-            System.err.println("Produto adicionado com Sucesso");
-            
+            /*stmt.execute();
+            System.err.println("Aluno adicionado com Sucesso");
+            */
             }catch(Exception e){
-                System.err.println("Erro no Adicionar Produto: "+e.toString());
-            
+                System.err.println("Erro no Adicionar Aluno: "+e.toString());
+                
             }
         
     
     }
     
+    public static ArrayList<LM_Alunos> listar(){
+
+        ArrayList<LM_Alunos> alunos = new ArrayList<>();
+
+        String sql = "SELECT * FROM LM_Alunos";
+
+        try{
+            Connection conexao = ConexaoDB.retornaConexao();
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+
+            ResultSet dados = stmt.executeQuery();
+
+            while(dados.next()){
+                LM_Alunos temporario = new LM_Alunos();
+                temporario.setId(dados.getInt("id"));
+                temporario.setLM_Nome(dados.getString("LM_nome"));
+                temporario.setLM_Serie(dados.getString("LM_serie"));
+                temporario.setLM_LM_Nota1(dados.getDouble("LM_nota1"));
+                temporario.setLM_Nota2(dados.getDouble("LM_nota2"));
+                temporario.setLM_Nota3(dados.getDouble("LM_nota3"));
+                temporario.setLM_Matricula(dados.getInt("LM_matricula"));
+                temporario.setLM_Senha(dados.getString("LM_senha"));
+
+                alunos.add(temporario);
+            }
+
+        }catch(Exception e){} 
+
+        return alunos;
+    }
+
+
+    public static void excluir() { }
+
+
+    public static void atualizar() {}
+
+        
 }

@@ -5,40 +5,21 @@
  */
 package LM_Principal;
 
-import LM_Layout.janela;
+
 
 /**
  *
  * @author Lucas
  */
 public class Lucas_Lopes_Martins_Registro_Escolar {
-
-    /**
-     * @param args the command line arguments
-     */
+        
+    
     public static void main(String[] args) {
         
-      
-              
-        
- 
-    
-      
-      
-      
-       
-        
-        
-       
-        
-        
-        
+  
+
          
-         
-         
-         
-         
-         janela janela=new janela();
+        /*janela janela=new janela();*/
          
         
     }

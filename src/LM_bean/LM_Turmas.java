@@ -10,6 +10,7 @@ package LM_bean;
  * @author Lucas
  */
 public class LM_Turmas {
+     private int id;
     protected int LM_totalDeTurmas;
     protected int LM_totalDeAlunos;
     protected String LM_Disciplinas;
@@ -17,6 +18,14 @@ public class LM_Turmas {
     protected String LM_series;
 
   
+      public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     
      public void setLM_totalDeTurmas(int LM_totalDeTurmas){
         this.LM_totalDeTurmas=LM_totalDeTurmas;

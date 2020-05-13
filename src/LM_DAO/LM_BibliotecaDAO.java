@@ -9,6 +9,8 @@ import ConexaoDB.ConexaoDB;
 import LM_bean.LM_Biblioteca;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -40,5 +42,42 @@ public class LM_BibliotecaDAO {
             
             }
     
+ 
     }
+    
+    public static ArrayList<LM_Biblioteca> listar(){
+
+             ArrayList<LM_Biblioteca> bibliotecas = new ArrayList<>();
+
+                String sql = "SELECT * FROM LM_Biblioteca";
+                
+                 try{
+            Connection conexao = ConexaoDB.retornaConexao();
+            PreparedStatement stmt = conexao.prepareStatement(sql);
+
+            ResultSet dados = stmt.executeQuery();
+
+            while(dados.next()){
+                LM_Biblioteca temporario = new LM_Biblioteca();
+                temporario.setId(dados.getInt("id"));
+                temporario.setLM_bibliotecaria(dados.getString("LM_bibliotecaria"));
+                temporario.setLM_acervo(dados.getDouble("LM_acervo"));
+                temporario.setLM_emprestimos(dados.getString("LM_emprestimos"));
+                temporario.setLM_pedidos(dados.getString("LM_pedidos"));
+                temporario.setLM_livro(dados.getString("LM_livros"));
+                temporario.setLM_localizarLivro(dados.getString("LM_localizarLivro"));
+                
+
+                bibliotecas.add(temporario);
+            }
+
+        }catch(Exception e){} 
+
+        return bibliotecas;
+
 }
+}
+
+
+
+            

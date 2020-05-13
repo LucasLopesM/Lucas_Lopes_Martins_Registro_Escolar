@@ -5,12 +5,18 @@
  */
 package LM_Layout;
 
+
 import static LM_Principal.IniciarAplicacao.centro;
 import LM_Views.LM_Form_Alunos;
 import LM_Views.LM_Form_Biblioteca;
 import LM_Views.LM_Form_Professor;
 import LM_Views.LM_Form_Series;
 import LM_Views.LM_Form_Turmas;
+import LM_Views.lista_LM_Alunos;
+import LM_Views.lista_LM_Biblioteca;
+import LM_Views.lista_LM_Professor;
+import LM_Views.lista_LM_Series;
+import LM_Views.lista_LM_Turmas;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -44,21 +50,22 @@ public class Topo extends JPanel{
   add(botao5);
     
   
-  botao1.addActionListener(new ActionListener (){ 
-      @Override
-      public void actionPerformed(ActionEvent event) {
-          centro.removeAll();
-          centro.add(new LM_Form_Alunos());
-          centro.repaint();
-          centro.validate();
-      }
-  });
+  botao1.addActionListener(
+            new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    centro.removeAll();
+                    centro.add(new lista_LM_Alunos());   
+                    centro.repaint();                 
+                    centro.validate();
+                }
+            });
   
    botao2.addActionListener(new ActionListener(){ 
       @Override
       public void actionPerformed(ActionEvent e) {
           centro.removeAll();
-          centro.add(new LM_Form_Professor());
+          centro.add(new lista_LM_Professor());
           centro.repaint();
           centro.validate();
       }
@@ -68,7 +75,7 @@ public class Topo extends JPanel{
       @Override
       public void actionPerformed(ActionEvent e) {
           centro.removeAll();
-          centro.add(new LM_Form_Biblioteca());
+          centro.add(new lista_LM_Biblioteca());
           centro.repaint();
           centro.validate();
       }
@@ -78,7 +85,7 @@ public class Topo extends JPanel{
       @Override
       public void actionPerformed(ActionEvent e) {
           centro.removeAll();
-          centro.add(new LM_Form_Turmas());
+          centro.add(new lista_LM_Turmas());
           centro.repaint();
           centro.validate();
       }
@@ -88,7 +95,7 @@ public class Topo extends JPanel{
       @Override
       public void actionPerformed(ActionEvent e) {
           centro.removeAll();
-          centro.add(new LM_Form_Series());
+          centro.add(new lista_LM_Series());
           centro.repaint();
           centro.validate();
       }

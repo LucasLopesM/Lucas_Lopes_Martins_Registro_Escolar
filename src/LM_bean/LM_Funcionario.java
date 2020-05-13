@@ -10,6 +10,7 @@ package LM_bean;
  * @author Lucas
  */
 public abstract class LM_Funcionario{
+     private int id;
      protected String LM_nome;
     protected String LM_cargo;
     protected double LM_cargaHoraria;
@@ -18,6 +19,14 @@ public abstract class LM_Funcionario{
     protected String LM_usuario;
     protected String LM_senha;
     protected int LM_faltas;
+    
+      public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
       
     public double HoraExtra(){

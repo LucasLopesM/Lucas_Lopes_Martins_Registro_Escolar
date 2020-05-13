@@ -10,19 +10,28 @@ package LM_bean;
  * @author Lucas
  */
 public class LM_Alunos {
+
+
+    private int id;
     protected String LM_nome;
     protected String LM_serie;
     protected double LM_nota1,LM_nota2,LM_nota3;
     protected double LM_media;
     protected int LM_matricula;
     protected String LM_senha;
+    
+    public LM_Alunos() {}
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
  
 
-    
-
-   
-    
     
     public double LM_Media(){
     return this.LM_media=(this.LM_nota1+this.LM_nota2+this.LM_nota3)/3;
